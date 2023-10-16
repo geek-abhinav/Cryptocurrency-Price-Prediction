@@ -37,7 +37,7 @@ data_load_state.text('Loading data... done!')
 st.subheader('Raw data')
 st.write(data.set_index('ds').tail(10))
 
-# Plot raw data
+
 def plot_raw_data():
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=data['ds'], y=data['y_open'], name="crypto_open"))
@@ -47,11 +47,11 @@ def plot_raw_data():
 	
 plot_raw_data()
 
-# Predict forecast with Linear Regression.
+
 df_train = data[['ds','y_close']]
 df_train = df_train.rename(columns={"ds": "ds", "y_close": "y"})
 
-# Extracting features from the date
+
 df_train['year'] = df_train['ds'].dt.year
 df_train['month'] = df_train['ds'].dt.month
 df_train['day'] = df_train['ds'].dt.day
@@ -64,7 +64,7 @@ y = df_train['y']
 model = LinearRegression()
 model.fit(X, y)
 
-# Creating future dates for prediction
+# future dates for prediction
 future_dates = pd.date_range(start=TODAY, periods=period, freq='D')
 future_df = pd.DataFrame({'ds': future_dates})
 future_df['year'] = future_df['ds'].dt.year
@@ -75,7 +75,7 @@ future_df['weekofyear'] = future_df['ds'].dt.weekofyear
 
 forecast = model.predict(future_df.drop(columns=['ds']))
 
-# Show and plot forecast
+
 st.subheader('Forecast data')
 st.write(future_df.tail())
 
@@ -89,15 +89,15 @@ fig1.add_trace(go.Scatter(x=future_df['ds'], y=forecast, name="Predicted"))
 fig1.layout.update(title_text='Cryptocurrency Forecast', xaxis_title='Date', yaxis_title='Price (USD)')
 st.plotly_chart(fig1)
 
-# Get tomorrow's date
+
 tomorrow = (date.today() + pd.Timedelta(days=1)).strftime('%Y-%m-%d')
 
-# Get the index of tomorrow's date in the future_df DataFrame
+
 tomorrow_index = future_df[future_df['ds'] == tomorrow].index[0]
 
-# Get the predicted price for tomorrow
+
 tomorrow_predicted_price = forecast[tomorrow_index]
 
-# Show the predicted price for tomorrow
+# predicted price for tomorrow
 st.subheader('Tomorrow Predicted Price')
 st.write(f'The predicted price for ({selected_symbol}) for tomorrow ({tomorrow}) is -> **{tomorrow_predicted_price:.2f} USD.**')
