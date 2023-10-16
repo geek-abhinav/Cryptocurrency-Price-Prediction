@@ -10,6 +10,13 @@ Cryptocurrency-Price-Prediction App is your gateway to accurate and real-time cr
 
 - **Real-Time Updates**: Stay ahead of the curve with real-time data updates, ensuring your predictions are always current and relevant.
 
+## Project Snapshots
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(517).png)
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(518).png)
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(519).png)
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(521).png)
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(522).png)
+![Alt Text](https://github.com/geek-abhinav/Cryptocurrency-Price-Prediction/blob/main/Screenshot%20(523).png)
 
 ## Disclaimer
 
